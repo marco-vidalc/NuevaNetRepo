@@ -1,10 +1,144 @@
-<HTML>
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<title>hola mundo </title>
-</head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Nueva Net: redes, respaldos y monitoreo para empresas.">
+	<title>Nueva Net | Redes, respaldos y monitoreo</title>
+	<style>
+		:root {
+			--ink: #12313f;
+			--mist: #eef3f6;
+			--line: #c5d3db;
+			--teal: #0e7c86;
+			--lamp: #f2b705;
+			--head: "Gill Sans", "Trebuchet MS", "Segoe UI", sans-serif;
+			--body: Georgia, "Times New Roman", serif;
+		}
+		* { box-sizing: border-box; margin: 0; }
+		html { scroll-behavior: smooth; }
+		body {
+			background: var(--mist);
+			color: var(--ink);
+			font-family: var(--body);
+			line-height: 1.65;
+		}
+		a { color: var(--teal); }
+		a:focus-visible { outline: 3px solid var(--lamp); outline-offset: 3px; }
+		.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
 
-<budy>
-	<h1>Hola mundo. pagina web de Nuevanet</h1>
-	<br>
-</budy>
+		header .wrap {
+			display: flex; justify-content: space-between; align-items: center;
+			padding-top: 1.5rem; padding-bottom: 1.5rem;
+		}
+		.logo { font-family: var(--head); font-weight: 700; font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+		.logo::before {
+			content: ""; display: inline-block; width: .7rem; height: .7rem;
+			border-radius: 50%; background: var(--lamp); margin-right: .5rem;
+		}
+		nav a { font-family: var(--head); margin-left: 1.5rem; color: var(--ink); }
+
+		.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; padding: 3rem 0 4rem; }
+		h1 {
+			font-family: var(--head); font-weight: 700;
+			font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: -.02em;
+		}
+		.hero p { max-width: 34rem; margin: 1.25rem 0 1.75rem; font-size: 1.15rem; }
+		.btn {
+			display: inline-block; font-family: var(--head); font-weight: 700;
+			background: var(--ink); color: #fff; text-decoration: none;
+			padding: .8rem 1.5rem; border-radius: 4px;
+		}
+		.btn:hover { background: var(--teal); }
+
+		.map { width: 100%; height: auto; }
+		.map line { stroke: var(--line); stroke-width: 2; }
+		.map circle.n { fill: var(--ink); }
+		.map circle.on { fill: var(--lamp); }
+		.map circle.ring { fill: none; stroke: var(--lamp); stroke-width: 2; animation: pulse 2.4s ease-out infinite; transform-origin: 160px 30px; }
+		@keyframes pulse { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(3); } }
+
+		section { padding: 3rem 0; border-top: 1px solid var(--line); }
+		h2 { font-family: var(--head); font-size: 1.9rem; margin-bottom: 1.5rem; }
+		.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+		.services div { border-left: 3px solid var(--teal); padding-left: 1rem; }
+		h3 { font-family: var(--head); font-size: 1.2rem; margin-bottom: .4rem; }
+
+		footer { border-top: 1px solid var(--line); padding: 1.5rem 0 2.5rem; font-size: .95rem; }
+
+		@media (max-width: 720px) {
+			.hero, .services { grid-template-columns: 1fr; }
+			nav a:first-child { margin-left: 0; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.map circle.ring { animation: none; opacity: 0; }
+			html { scroll-behavior: auto; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="wrap">
+			<a class="logo" href="#">Nueva Net</a>
+			<nav>
+				<a href="#servicios">Servicios</a>
+				<a href="#contacto">Contacto</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="wrap">
+		<div class="hero">
+			<div>
+				<h1>Tu red funcionando, tus datos a salvo.</h1>
+				<p>En Nueva Net instalamos y cuidamos las redes de empresas pequeñas y medianas, respaldamos su información y vigilamos sus servidores para que nada se detenga.</p>
+				<a class="btn" href="#contacto">Escríbenos</a>
+			</div>
+			<svg class="map" viewBox="0 0 320 260" role="img" aria-label="Diagrama de una red de cinco nodos conectados">
+				<line x1="50" y1="60" x2="160" y2="30"/>
+				<line x1="160" y1="30" x2="270" y2="90"/>
+				<line x1="50" y1="60" x2="90" y2="190"/>
+				<line x1="160" y1="30" x2="90" y2="190"/>
+				<line x1="160" y1="30" x2="220" y2="200"/>
+				<line x1="270" y1="90" x2="220" y2="200"/>
+				<line x1="90" y1="190" x2="220" y2="200"/>
+				<circle class="n" cx="50" cy="60" r="9"/>
+				<circle class="n" cx="270" cy="90" r="9"/>
+				<circle class="n" cx="90" cy="190" r="9"/>
+				<circle class="n" cx="220" cy="200" r="9"/>
+				<circle class="ring" cx="160" cy="30" r="10"/>
+				<circle class="on" cx="160" cy="30" r="12"/>
+			</svg>
+		</div>
+
+		<section id="servicios">
+			<h2>Qué hacemos</h2>
+			<div class="services">
+				<div>
+					<h3>Redes e internet</h3>
+					<p>Instalamos, configuramos y damos soporte a la red de tu oficina, con Wi-Fi estable en cada rincón.</p>
+				</div>
+				<div>
+					<h3>Respaldos</h3>
+					<p>Copias automáticas de tus archivos importantes, con restauraciones probadas para que sepas que funcionan.</p>
+				</div>
+				<div>
+					<h3>Monitoreo de servidores</h3>
+					<p>Revisamos los registros de tus equipos cada día y te avisamos antes de que un problema te detenga.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="contacto">
+			<h2>Hablemos de tu red</h2>
+			<p>Cuéntanos qué necesitas y te respondemos el mismo día hábil.</p>
+			<p><a href="mailto:contacto@nuevanet.example">contacto@nuevanet.example</a></p>
+			<p>Lunes a viernes, de 9:00 a 18:00.</p>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap">© 2026 Nueva Net. Todos los derechos reservados.</div>
+	</footer>
+</body>
+</html>
