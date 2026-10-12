@@ -3,7 +3,7 @@ docker rm -f NuevaNetWEB
 
 docker run -d --name NuevaNetWEB -p 80:80 \
   --cpus="0.5" \
-  --memory="128m" \
+  --memory="80m" \
   --memory-swap="128m" \
   --pids-limit=100 \
   --read-only \
